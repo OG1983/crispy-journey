@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <section class="form-section">
+        <div class="form-container">
+            <h1>Envía tu consulta</h1>
+            <form id="contactForm" action="https://formsubmit.co/octavio.gabriele@gmail.com" method="POST" onsubmit="mostrarConfirmacion(event)">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Consulta:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit" class="submit-btn">Enviar</button>
+            </form>
+            <div id="successMessage" class="hidden">
+                <p>Solicitud enviada con éxito. Recibirás la respuesta en las próximas 24 horas.</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Estilo para ocultar el mensaje inicialmente */
+        .hidden {
+            display: none;
+        }
+        #successMessage {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #4CAF50;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+        function mostrarConfirmacion(event) {
+            // Muestra el mensaje de éxito
+            event.preventDefault(); // Evita el comportamiento predeterminado temporalmente
+
+            // Oculta el formulario
+            const form = document.getElementById('contactForm');
+            form.style.display = 'none';
+
+            // Muestra el mensaje de confirmación
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.remove('hidden');
+
+            // Envía el formulario automáticamente después de mostrar el mensaje
+            setTimeout(() => {
+                form.submit(); // Envía el formulario después de 2 segundos
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
