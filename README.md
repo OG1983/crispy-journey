@@ -1,2 +1,3 @@
 # crispy-journey
-full stack project. municipalidad 
+full stack project: css + javascript + html 
+municipalidad 
